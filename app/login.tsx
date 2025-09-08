@@ -168,9 +168,23 @@ const login = () => {
 
   const [openArea, setOpenArea] = useState(false);
   const [selectedArea, setSelectedArea] = useState("Types of Your area");
+const zones = [
+  "North Central",
+  "North East",
+  "North West",
+  "South East",
+  "South South",
+  "South West"
+];
 
-  const zones = ["Banasree", "Gulshan", "Banani", "Dhanmondi", "Mirpur"];
-  const areas = ["Residential", "Commercial", "Mixed", "Industrial"];
+const areas = [
+  "Abuja", "Kogi", "Kwara", "Benue", "Niger", "Plateau", "Nassarawa",
+  "Adamawa", "Bauchi", "Borno", "Gombe", "Taraba", "Yobe",
+  "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Sokoto", "Zamfara",
+  "Abia", "Anambra", "Ebonyi", "Enugu", "Imo",
+  "Akwa Ibom", "Bayelsa", "Cross River", "Delta", "Edo", "Rivers",
+  "Ekiti", "Lagos", "Ogun", "Ondo", "Osun", "Oyo"
+];
 
   const selectZone = (zone: string) => {
     setSelectedZone(zone);
