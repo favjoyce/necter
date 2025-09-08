@@ -1,0 +1,192 @@
+import { View, Text, TextInput } from 'react-native'
+import React, { useState } from 'react'
+import { StyleSheet,Image, TouchableOpacity,Keyboard,KeyboardAvoidingView,Platform,TouchableWithoutFeedback} from 'react-native'
+import { Link, router } from 'expo-router'
+import { MaterialIcons } from '@expo/vector-icons'
+
+
+const mainLogin = () => {
+      const [email, setEmail] = useState("");
+      const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+
+  return (
+      <KeyboardAvoidingView
+              behavior={Platform.OS === "ios" ? "padding" : "height"}
+              style={{ flex: 1 }}
+            >
+ <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+    <View style={style.main}>
+        <View style={style.TopImg} ><Image source={require('../assets/images/carrot.png')} style={style.bgimg}></Image></View>
+       <View style={style.TopImgs} ><Image source={require('../assets/images/redcarrot.png')}></Image></View>
+      <View style={style.LogIn}>
+        <Text style={style.logtext}>Log In</Text>
+        <Text>Enter your email and password</Text>
+        </View>
+        <View style={style.email}>
+           <Text style={style.emailtext}>Email</Text>
+           <TextInput style={style.input}
+        placeholder="Enter your email"
+        keyboardType="email-address" // shows @ and . on keyboard
+        autoCapitalize="none"        // prevents auto-capitalization
+        autoCorrect={false}
+        value={email}
+        onChangeText={setEmail} />
+        </View>
+
+                <View style={style.emails}>
+           <Text style={style.emailtext}>Password</Text>
+           <View style={style.div}>
+               <TextInput
+          style={style.inputs}
+          placeholder="Enter your password"
+          secureTextEntry={!showPassword} // hides text when false
+          value={password}
+          onChangeText={setPassword}
+        />
+        <TouchableOpacity
+          onPress={() => setShowPassword(!showPassword)}
+          style={style.icons}
+        >
+          <MaterialIcons
+            name={showPassword ? "visibility" : "visibility-off"}
+            size={24}
+            color="gray"
+          />
+        </TouchableOpacity>
+        </View>
+        </View>
+
+
+        <View style={style.forgot}><Text style={style.forgotText}>Forgot Passowrd?</Text></View>
+
+         <TouchableOpacity onPress={() => router.navigate('/mainLogin')} style={style.submit}><Text style={style.submittext}>Log In</Text></TouchableOpacity>
+
+         <View style={style.dontHold}><Text>Dont have an account? <Text onPress={() => router.navigate('/SignUP')} style={style.dHtext}>Sign Up</Text></Text></View>
+    </View>
+        </TouchableWithoutFeedback>
+           </KeyboardAvoidingView>
+  )
+}
+
+export default mainLogin;
+
+const style=StyleSheet.create({
+    dontHold:{
+        marginTop:15
+    },
+    dHtext:{
+        color:'#53b175'
+    },
+    forgot:{
+        width:'90%',
+        alignItems:'flex-end',
+        marginTop:12
+    },
+    forgotText:{
+     color:'#181725',
+     fontSize:14,
+     fontWeight:'400'
+    },
+    container: { margin: 20 },
+  inputWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1,
+    borderColor: "#ccc",
+    borderRadius: 8,
+    paddingHorizontal: 12,
+  },
+  inputs: {
+    flex: 1,
+    paddingVertical: 12,
+    fontSize: 16,
+    flexDirection:'row',
+   
+  },
+  icons: {
+    paddingLeft: 8,
+  },
+    email:{
+        width:'90%',
+        gap:5,
+        marginTop:20
+    },
+     emails:{
+        width:'90%',
+        gap:5,
+        marginTop:40,
+        borderBottomWidth:1,
+    borderColor:'#7c7c7c',
+        
+    },
+    div:{
+flexDirection:'row',
+        alignItems:'center'
+    },
+    icon: {
+    paddingLeft: 8,
+  },
+  bgimg:{
+    width:'100%',
+    height:'100%'
+  },
+    emailtext:{
+     color:'#7c7c7c',
+     fontSize:15.9,
+     fontWeight:'600'
+    },
+    input: {
+    borderBottomWidth:1,
+    borderColor:'#7c7c7c',
+    // padding: 12,
+    fontSize: 16,
+  },
+    main:{
+        flex:1,
+        alignItems:'center',
+        // justifyContent:'center',
+        backgroundColor:'white'
+    },
+    TopImg:{
+        backgroundColor:'red',
+        width:'100%',
+        height:'25%'
+    },
+    TopImgs:{
+        // height:0,
+        // width:'20%'
+        alignItems:'center',
+        justifyContent:'center',
+        marginTop:-120
+    },
+    LogIn:{
+        marginTop:'30%',
+        width:'90%'
+    },
+    logtext:{
+        color:'#181725',
+        fontSize:25.9,
+        fontWeight:'600',
+        marginBottom:18
+    },
+    logSmall:{
+        color:'#7c7c7c',
+        fontSize:15.9,
+        fontWeight:'400'
+    },
+    submit:{
+    width:'90%',
+    height:50,
+    borderRadius:12,
+    backgroundColor:'#53b175',
+    alignItems:'center',
+    justifyContent:'center',
+    marginTop:'14%'
+   },
+   submittext:{
+    color:'white',
+    fontSize:18,
+    fontWeight:'600'
+   }
+})

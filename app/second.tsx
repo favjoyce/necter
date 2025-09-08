@@ -6,7 +6,7 @@ const second = () => {
   return (
         <ImageBackground source={require('../assets/images/man.png')} style={style.main}>
             <View style={style.view}>
-                <Image source={require("../assets/images/Group.png")}/>
+                <Image source={require("../assets/images/carrot1.png")}/>
                 <Text style={style.welcome}>
                     Welcome {"\n"} to our store
                 </Text>
