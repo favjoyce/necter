@@ -238,7 +238,6 @@ const areas = [
             )}
           </View>
 
-          {/* Area Dropdown */}
           <View style={style.zoness}>
             <Text style={style.yourZone}>Your Area</Text>
             <TouchableOpacity style={style.BanHold} onPress={() => setOpenArea(!openArea)}>
