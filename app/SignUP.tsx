@@ -333,7 +333,8 @@ const SignUP = () => {
           {/* Submit Button */}
           <TouchableOpacity
             disabled={!canSubmit}
-            onPress={() => router.navigate('/')}
+            onPress={() => router.replace('./(tab)/shop')}
+            
             style={[
               style.submit,
               { backgroundColor: canSubmit ? "#53b175" : "#a5d6a7" },

@@ -202,8 +202,9 @@ const mainLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const [emailValid, setEmailValid] = useState<boolean | null>(null);
+  const [emailValid,  setEmailValid] = useState<boolean | null>(null);
 const [passwordValid, setPasswordValid] = useState<boolean | null>(null);
+
 
 
 const validateEmail = (value: string) => {
@@ -284,7 +285,7 @@ const validatePassword = (value: string) => {
                 />
               </TouchableOpacity>
             </View>
-            {passwordValid === false && (
+            {passwordValid === false && ( 
               <Text style={style.errorText}>
                 Password must be 8+ chars & include a special character
               </Text>
@@ -299,10 +300,10 @@ const validatePassword = (value: string) => {
           {/* Submit Button */}
           <TouchableOpacity
             disabled={!canSubmit}
-            onPress={() => router.navigate('/mainLogin')}
+            onPress={() => router.replace('./(tab)/shop')}
             style={[
               style.submit,
-              { backgroundColor: canSubmit ? "#53b175" : "#a5d6a7" }, // greyed out if invalid
+              { backgroundColor: canSubmit ? "#53b175" : "#a5d6a7" }, 
             ]}
           >
             <Text style={style.submittext}>Log In</Text>

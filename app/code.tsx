@@ -93,7 +93,7 @@ const handleOtpChange = (index: number, value: string) => {
          <View style={style.greenhold}>
                         <Text style={style.resend}>Resend Code</Text> 
 
-            <TouchableOpacity style={style.green} onPress={()=>router.navigate('/login')}> 
+            <TouchableOpacity style={style.green} onPress={()=>router.navigate('/Login')}> 
                <Text style={style.resendText}> <MaterialIcons name="arrow-forward-ios" size={28} color="white" /></Text>
 </TouchableOpacity>
          </View>

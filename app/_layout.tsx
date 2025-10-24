@@ -14,7 +14,7 @@
 //     headerLeft: (props) => (
 //       <HeaderBackButton
 //         {...props}
-//         tintColor="black" // 👈 makes arrow black
+//         tintColor="black" // 
 //         label=""          // hides the text
 //         onPress={() => {
 //           if (navigation.canGoBack()) {
@@ -32,19 +32,19 @@
 //   </Stack>);
 // }
 import { Text, View,StyleSheet,Image} from "react-native";
-
-
-
 import { Stack, useRouter } from "expo-router";
 import { HeaderBackButton } from "@react-navigation/elements";
 import React from "react";
+import { CartProvider } from "./context/CartContext";
+
 
 export default function RootLayout() {
   const router = useRouter();
 
   return (
+    <CartProvider>
     <Stack screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="mainLogin" options={{ title: "" }} />
+      <Stack.Screen name="(tab)" options={{ title: "" }} />
       <Stack.Screen name="second" />
             <Stack.Screen name="code" />
 
@@ -71,5 +71,6 @@ export default function RootLayout() {
             
        
     </Stack>
+    </CartProvider>
   );
 }
